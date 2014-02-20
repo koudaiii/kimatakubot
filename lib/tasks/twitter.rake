@@ -1,4 +1,5 @@
 require 'twitter'
+require 'sudden_death'
 
 namespace :twitter do
   desc "tweet"
@@ -11,7 +12,7 @@ namespace :twitter do
       config.oauth_token_secret = ENV['OAUTH_TOKEN_SECRET']
     end
 
-    tweet = "今日は給料日です"
+    tweet = "今日は給料日です".sudden_death
     client.update(tweet)
   end
 

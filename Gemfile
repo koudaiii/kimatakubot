@@ -36,6 +36,8 @@ end
 gem 'omniauth-twitter', '~> 1.0.1'
 gem 'twitter', '~> 5.3.0'
 gem 'dotenv-rails'
+# Use Sudden_death for tweet
+gem 'sudden_death'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
