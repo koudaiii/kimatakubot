@@ -4,7 +4,13 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
+gem 'mysql2'
+
+# Use rails_12factor for Heroku
+gem 'rails_12factor', group: :production
+gem 'heroku'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
