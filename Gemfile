@@ -15,6 +15,15 @@ gem 'heroku'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
+
+#Use Font Awesome
+gem 'font-awesome-less'
+
+#Use puma
+gem 'puma'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -22,7 +31,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+# Use therubyracer for bootstrap
+gem 'therubyracer', platforms: :ruby
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -38,6 +49,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+### Use Kimatakubot
 # for twitter api
 gem 'omniauth-twitter', '~> 1.0.1'
 gem 'twitter', '~> 5.3.0'
