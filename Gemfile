@@ -56,3 +56,55 @@ gem 'sudden_death'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :development, :test do
+  # Use cucumber as the test tool
+  gem 'cucumber-rails', require: false
+  gem 'cucumber-rails-training-wheels'
+
+  # Use capybara as the test tool
+  gem 'capybara'
+
+  # Use rspec as the test tool
+  gem 'rspec-rails'
+
+  # Use spork for speed of server (no using)
+  gem 'spork'
+
+  # Use guard
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-cucumber'
+  gem 'guard-rubocop'
+
+  # Gemfileを監視して変更があったら自動でbundle installを実行
+  gem 'guard-bundler'
+  gem 'growl'
+
+  gem 'webrat'
+  gem 'database_cleaner'
+
+  gem 'turnip'
+  gem 'factory_girl_rails'
+
+  gem 'simplecov', :require => false
+
+  gem 'binding_of_caller'
+  gem "better_errors"
+  gem 'pry'
+
+  gem 'pry-rails'
+  gem 'pry-coolline'
+  gem 'pry-debugger'
+  gem 'awesome_print'
+
+  gem 'hirb'
+  gem 'hirb-unicode'
+
+  gem 'rails-erd'
+  # static code analyzer
+  gem 'rubocop', require: false
+  # gem 'guard-rubocop'
+  gem 'quiet_assets'
+
+end
