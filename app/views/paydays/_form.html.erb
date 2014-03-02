@@ -1,0 +1,29 @@
+<%= form_for(@payday) do |f| %>
+  <% if @payday.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@payday.errors.count, "error") %> prohibited this payday from being saved:</h2>
+
+      <ul>
+      <% @payday.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :twitter_acount_name %><br>
+    <%= f.text_area :twitter_acount_name %>
+  </div>
+  <div class="field">
+    <%= f.label :payday %><br>
+    <%= f.date_select :payday %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

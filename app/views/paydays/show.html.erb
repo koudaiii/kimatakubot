@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @payday.title %>
+</p>
+
+<p>
+  <strong>Twitter acount name:</strong>
+  <%= @payday.twitter_acount_name %>
+</p>
+
+<p>
+  <strong>Payday:</strong>
+  <%= @payday.payday %>
+</p>
+
+<%= link_to 'Edit', edit_payday_path(@payday) %> |
+<%= link_to 'Back', paydays_path %>

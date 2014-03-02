@@ -1,4 +1,6 @@
 Kimatakubot::Application.routes.draw do
+  resources :paydays
+
   resources :homes
 
   resources :releases

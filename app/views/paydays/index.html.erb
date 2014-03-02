@@ -1,0 +1,31 @@
+<h1>Listing paydays</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Twitter acount name</th>
+      <th>Payday</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @paydays.each do |payday| %>
+      <tr>
+        <td><%= payday.title %></td>
+        <td><%= payday.twitter_acount_name %></td>
+        <td><%= payday.payday %></td>
+        <td><%= link_to 'Show', payday %></td>
+        <td><%= link_to 'Edit', edit_payday_path(payday) %></td>
+        <td><%= link_to 'Destroy', payday, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Payday', new_payday_path %>
