@@ -1,7 +1,7 @@
 require 'twitter'
 require 'sudden_death'
 
-namespace :twitter do
+namespace :test do
   desc "tweet"
   task :tweet => :environment do
 
