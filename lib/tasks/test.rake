@@ -12,7 +12,7 @@ namespace :test do
       config.oauth_token_secret = ENV['OAUTH_TOKEN_SECRET']
     end
 
-    tweet = "テスト".sudden_death
+    tweet = "Setting Job Schedule in Heroku".sudden_death
     client.update(tweet)
   end
 
