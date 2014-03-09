@@ -12,7 +12,7 @@ namespace :test do
       config.oauth_token        = ENV['OAUTH_TOKEN']
       config.oauth_token_secret = ENV['OAUTH_TOKEN_SECRET']
     end
-    tweet = "Setting Job Schedule in Heroku 3".sudden_death
+    tweet = "Setting Job Schedule in Heroku 4".sudden_death
     unless Payday.find_by_payday("#{date.year}-#{date.month}-#{date.day}").nil?
       client.update(tweet)
     end
