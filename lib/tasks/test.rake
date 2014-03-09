@@ -5,15 +5,17 @@ namespace :test do
   desc "tweet"
   task :tweet => :environment do
 
+    date=DateTime.now
     client = Twitter::REST::Client.new do |config|
       config.consumer_key       = ENV['CONSUMER_KEY']
       config.consumer_secret    = ENV['CONSUMER_SECRET']
       config.oauth_token        = ENV['OAUTH_TOKEN']
       config.oauth_token_secret = ENV['OAUTH_TOKEN_SECRET']
     end
-
     tweet = "Setting Job Schedule in Heroku 3".sudden_death
-    client.update(tweet)
+    unless Payday.find_by_payday("#{date.year}-#{date.month}-#{date.day}").nil?
+      client.update(tweet)
+    end
   end
 
   def update(tweet)

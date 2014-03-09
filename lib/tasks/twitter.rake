@@ -5,6 +5,7 @@ namespace :twitter do
   desc "tweet"
   task :tweet => :environment do
 
+    date=DateTime.now
     client = Twitter::REST::Client.new do |config|
       config.consumer_key       = ENV['CONSUMER_KEY']
       config.consumer_secret    = ENV['CONSUMER_SECRET']
@@ -13,9 +14,11 @@ namespace :twitter do
     end
 
     tweet = "今日は給料日です".sudden_death
-    client.update(tweet)
-  end
 
+    unless Payday.find_by_payday("#{date.year}-#{date.month}-#{date.day}").nil?
+      client.update(tweet)
+    end
+  end
   def update(tweet)
     begin
       tweet = (tweet.length > 140) ? tweet[0..139].to_s : tweet
