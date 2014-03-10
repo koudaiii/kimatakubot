@@ -2,5 +2,8 @@
 
 FactoryGirl.define do
   factory :release do
+    title "MyString"
+    description "MyText"
+    release_at "2014-03-10"
   end
 end

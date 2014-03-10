@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140309143834) do
+ActiveRecord::Schema.define(version: 20140310105641) do
 
   create_table "homes", force: true do |t|
     t.datetime "created_at"
@@ -27,10 +27,11 @@ ActiveRecord::Schema.define(version: 20140309143834) do
   end
 
   create_table "releases", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "title"
     t.text     "description"
+    t.date     "release_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

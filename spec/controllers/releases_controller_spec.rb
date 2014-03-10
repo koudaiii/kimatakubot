@@ -23,7 +23,7 @@ describe ReleasesController do
   # This should return the minimal set of attributes required to create a valid
   # Release. As you add validations to Release, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { {  } }
+  let(:valid_attributes) { { "title" => "MyString" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe ReleasesController do
       it "assigns a newly created but unsaved release as @release" do
         # Trigger the behavior that occurs when invalid params are submitted
         Release.any_instance.stub(:save).and_return(false)
-        post :create, {:release => {  }}, valid_session
+        post :create, {:release => { "title" => "invalid value" }}, valid_session
         assigns(:release).should be_a_new(Release)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Release.any_instance.stub(:save).and_return(false)
-        post :create, {:release => {  }}, valid_session
+        post :create, {:release => { "title" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe ReleasesController do
         # specifies that the Release created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Release.any_instance.should_receive(:update).with({ "these" => "params" })
-        put :update, {:id => release.to_param, :release => { "these" => "params" }}, valid_session
+        Release.any_instance.should_receive(:update).with({ "title" => "MyString" })
+        put :update, {:id => release.to_param, :release => { "title" => "MyString" }}, valid_session
       end
 
       it "assigns the requested release as @release" do
@@ -128,7 +128,7 @@ describe ReleasesController do
         release = Release.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Release.any_instance.stub(:save).and_return(false)
-        put :update, {:id => release.to_param, :release => {  }}, valid_session
+        put :update, {:id => release.to_param, :release => { "title" => "invalid value" }}, valid_session
         assigns(:release).should eq(release)
       end
 
@@ -136,7 +136,7 @@ describe ReleasesController do
         release = Release.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Release.any_instance.stub(:save).and_return(false)
-        put :update, {:id => release.to_param, :release => {  }}, valid_session
+        put :update, {:id => release.to_param, :release => { "title" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
