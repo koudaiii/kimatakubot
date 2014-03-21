@@ -8,7 +8,7 @@ namespace :payday do
 
     #Payday is a business day, holidays and Saturday and Sunday are not included.
     payday_at = payday_this_month(date)
-    create(date)
+    create(payday_at)
 
   end
 
@@ -20,15 +20,15 @@ namespace :payday do
 
     while date.year != 2051 do
       payday_at = payday_this_month(date)
-      create(date)
+      create(payday_at)
       date=date.next_month
     end
   end
 
-  def create(date)
+  def create(payday_at)
     payday=Payday.new
     payday.title="今日は給料日です"
-    payday.payday=date
+    payday.payday=payday_at
     payday.save
   end
 
