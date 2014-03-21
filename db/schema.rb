@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140310105641) do
+ActiveRecord::Schema.define(version: 20140321062434) do
 
   create_table "homes", force: true do |t|
     t.datetime "created_at"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20140310105641) do
     t.string   "title"
     t.text     "description"
     t.date     "release_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tweets", force: true do |t|
+    t.string   "title"
+    t.text     "tweet"
+    t.text     "twitter_acount_name"
+    t.date     "started_at"
+    t.date     "ended_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
