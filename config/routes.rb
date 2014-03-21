@@ -1,4 +1,6 @@
 Kimatakubot::Application.routes.draw do
+  resources :tweets
+
   resources :releases
 
   resources :paydays
