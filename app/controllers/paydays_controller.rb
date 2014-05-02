@@ -4,7 +4,7 @@ class PaydaysController < ApplicationController
   # GET /paydays
   # GET /paydays.json
   def index
-    @paydays = Payday.all
+    @paydays = Payday.page(params[:page]).per(10)
   end
 
   # GET /paydays/1

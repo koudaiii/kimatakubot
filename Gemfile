@@ -72,6 +72,8 @@ gem 'sudden_death'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'kaminari'
+
 group :development, :test do
   # Use cucumber as the test tool
   gem 'cucumber-rails', require: false
