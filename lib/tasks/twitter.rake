@@ -5,7 +5,7 @@ namespace :twitter do
   desc "tweet"
   task :tweet => :environment do
 
-    date=DateTime.now.next
+    date=DateTime.now
     client = Twitter::REST::Client.new do |config|
       config.consumer_key       = ENV['CONSUMER_KEY']
       config.consumer_secret    = ENV['CONSUMER_SECRET']
