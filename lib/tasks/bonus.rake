@@ -27,7 +27,7 @@ namespace :bonus do
 
   def bonus_create(bonus_at)
     bonus=Payday.new
-    bonus.title="今日はぼおおおおおおなすぅぅでぇぇぇすぅぅぅ。\nヒャッハァ！！！"
+    bonus.title="今日はぼおおなすうぅ！"
     bonus.payday=bonus_at
     bonus.save
   end
