@@ -13,9 +13,10 @@ namespace :twitter do
       config.oauth_token_secret = ENV['OAUTH_TOKEN_SECRET']
     end
 
-    tweet = "今日は給料日です".sudden_death
+    payday = Payday.find_by_payday("#{date.year}-#{date.month}-#{date.day}")
 
-    unless Payday.find_by_payday("#{date.year}-#{date.month}-#{date.day}").nil?
+    unless payday.nil?
+      tweet = payday.title.sudden_death
       client.update(tweet)
     end
   end
