@@ -4,8 +4,9 @@ namespace :Yo do
   desc "Yo"
   task :Yo => :environment do
     yo_api_token       = ENV['YO_API_TOKEN']
-    puts "#{yo_api_token}"
-    yoall(yo_api_token)
+    5.times do |i|
+      yoall(yo_api_token)
+    end
   end
 
   def yoall(yo_api_token)
