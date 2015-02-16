@@ -37,17 +37,15 @@ namespace :twitter do
     http.use_ssl = true
 
     body = {}
-    request = Net::HTTP::Post.new(uri.request_uri, {'Content-Type' =>'application/json'})
-    request.body = body.to_json
     body['utt'] = mention_text
     body['nickname'] = reply_to_user
     body['t'] = 20
+    request = Net::HTTP::Post.new(uri.request_uri, {'Content-Type' =>'application/json'})
+    request.body = body.to_json
 
     response = nil
-    http.start do |h|
-      resp = h.request(request)
-      response = JSON.parse(resp.body)
-    end
+    resp = http.request(request)
+    response = JSON.parse(resp.body)
     return response['utt']
   end
 
