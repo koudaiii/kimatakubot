@@ -60,6 +60,8 @@ end
 gem 'omniauth-twitter', '~> 1.0.1'
 gem 'twitter', '~> 5.3.0'
 gem 'dotenv-rails'
+gem 'tweetstream'
+
 # Use Sudden_death for tweet
 gem 'sudden_death'
 
@@ -127,4 +129,6 @@ group :development, :test do
   # gem 'guard-rubocop'
   gem 'quiet_assets'
 
+  # heroku
+  gem 'foreman'
 end
