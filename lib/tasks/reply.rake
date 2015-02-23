@@ -1,4 +1,5 @@
-require 'twitter'
+require 'logger'
+require 'tweetstream'
 require 'net/http'
 require 'uri'
 require 'json'
@@ -8,6 +9,10 @@ namespace :twitter do
   desc "reply"
   task :reply => :environment do
 
+    log = Logger.new(STDOUT)
+    STDOUT.sync = true
+
+    # Twitter Client
     client = Twitter::REST::Client.new do |config|
       config.consumer_key       = ENV['CONSUMER_KEY']
       config.consumer_secret    = ENV['CONSUMER_SECRET']
@@ -15,19 +20,38 @@ namespace :twitter do
       config.oauth_token_secret = ENV['OAUTH_TOKEN_SECRET']
     end
 
-    max_status_id               = 0
-    mention                     = client.mentions_timeline.first
-    tweet_status_id             = mention.id.to_i
-    mention_text                = client.status(mention.id).text
-    reply_to_user               = mention.user.screen_name
-
-    if ( max_status_id < tweet_status_id )
-      max_status_id = tweet_status_id
+    # Twitter userstream
+    TweetStream.configure do |config|
+      config.consumer_key       = ENV['CONSUMER_KEY']
+      config.consumer_secret    = ENV['CONSUMER_SECRET']
+      config.oauth_token        = ENV['OAUTH_TOKEN']
+      config.oauth_token_secret = ENV['OAUTH_TOKEN_SECRET']
+      config.auth_method        = :oauth
     end
-    next if ( last_reply_status_id >= tweet_status_id )   # 既に応答した人はスキップ
-    tweet = "@" + reply_to_user + " " + reply_text(reply_to_user, mention_text)
-    client.update(tweet)
-    update_reply_status_id(max_status_id)
+    stream = TweetStream::Client.new
+
+    EM.error_handler do |e|
+        raise e.message
+    end
+
+    EM.run do
+      stream.userstream do |status|
+        log.info('status from @%s: %s' % [status.from_user, status.text])
+      end
+    end
+#    max_status_id               = 0
+#    mention                     = client.mentions_timeline.first
+#    tweet_status_id             = mention.id.to_i
+#    mention_text                = client.status(mention.id).text
+#    reply_to_user               = mention.user.screen_name
+#
+#    if ( max_status_id < tweet_status_id )
+#      max_status_id = tweet_status_id
+#    end
+#    next if ( last_reply_status_id >= tweet_status_id )   # 既に応答した人はスキップ
+#    tweet = "@" + reply_to_user + " " + reply_text(reply_to_user, mention_text)
+#    client.update(tweet)
+#    update_reply_status_id(max_status_id)
   end
 
   def reply_text(reply_to_user="",mention_text="")

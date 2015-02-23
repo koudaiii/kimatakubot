@@ -60,7 +60,7 @@ end
 gem 'omniauth-twitter', '~> 1.0.1'
 gem 'twitter'
 gem 'dotenv-rails'
-gem 'tweetstream'
+gem 'tweetstream', '~> 2.6.1'
 
 # Use Sudden_death for tweet
 gem 'sudden_death'
