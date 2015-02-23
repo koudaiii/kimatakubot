@@ -58,7 +58,7 @@ end
 ### Use Kimatakubot
 # for twitter api
 gem 'omniauth-twitter', '~> 1.0.1'
-gem 'twitter', '~> 5.3.0'
+gem 'twitter'
 gem 'dotenv-rails'
 gem 'tweetstream'
 
