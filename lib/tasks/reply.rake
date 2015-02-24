@@ -36,14 +36,16 @@ namespace :twitter do
 
     EM.run do
       stream.userstream do |status|
-        log.info('status from @%s: %s' % [status.from_user, status.text])
+        max_status_id               = 0
+        mention                     = client.mentions_timeline.first
+        tweet_status_id             = mention.id.to_i
+        mention_text                = client.status(mention.id).text
+        reply_to_user               = mention.user.screen_name
+      
+        log.info('reply   from @%s: %s' % [status.reply, status.text])
+        log.info('status  from @%s: %s' % [status.from_user, status.text])
       end
     end
-#    max_status_id               = 0
-#    mention                     = client.mentions_timeline.first
-#    tweet_status_id             = mention.id.to_i
-#    mention_text                = client.status(mention.id).text
-#    reply_to_user               = mention.user.screen_name
 #
 #    if ( max_status_id < tweet_status_id )
 #      max_status_id = tweet_status_id

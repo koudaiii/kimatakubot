@@ -27,8 +27,9 @@ TweetStream.configure do |config|
   config.oauth_token_secret = ENV['OAUTH_TOKEN_SECRET']
   config.auth_method        = :oauth
 end
-
 stream = TweetStream::Client.new
+stream.userstream(:replies => 'all')
+
 EM.error_handler do |e|
     raise e.message
 end

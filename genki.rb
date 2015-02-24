@@ -23,6 +23,7 @@ TweetStream.configure do |config|
   config.auth_method        = :oauth
 end
 stream = TweetStream::Client.new
+stream.userstream(:replies => 'all')
 
 EM.error_handler do |e|
   raise e.message
