@@ -14,10 +14,10 @@ namespace :twitter do
 
     # Twitter Client
     client = Twitter::REST::Client.new do |config|
-      config.consumer_key       = ENV['CONSUMER_KEY']
-      config.consumer_secret    = ENV['CONSUMER_SECRET']
-      config.oauth_token        = ENV['OAUTH_TOKEN']
-      config.oauth_token_secret = ENV['OAUTH_TOKEN_SECRET']
+      config.consumer_key         = ENV['CONSUMER_KEY']
+      config.consumer_secret      = ENV['CONSUMER_SECRET']
+      config.access_token         = ENV['OAUTH_TOKEN']
+      config.access_token_secret  = ENV['OAUTH_TOKEN_SECRET']
     end
 
     # Twitter userstream
@@ -28,24 +28,28 @@ namespace :twitter do
       config.oauth_token_secret = ENV['OAUTH_TOKEN_SECRET']
       config.auth_method        = :oauth
     end
-    stream = TweetStream::Client.new
-
-    EM.error_handler do |e|
-        raise e.message
+#    stream = TweetStream::Client.new
+#    stream.userstream(:replies => 'all')
+    TweetStream::Client.new.userstream(:replies => 'all') do |status|
+      puts "#{status.user.screen_name}: #{status.text}"
     end
-
-    EM.run do
-      stream.userstream do |status|
-        max_status_id               = 0
-        mention                     = client.mentions_timeline.first
-        tweet_status_id             = mention.id.to_i
-        mention_text                = client.status(mention.id).text
-        reply_to_user               = mention.user.screen_name
-      
-        log.info('reply   from @%s: %s' % [status.reply, status.text])
-        log.info('status  from @%s: %s' % [status.from_user, status.text])
-      end
-    end
+#    EM.error_handler do |e|
+#        raise e.message
+#    end
+#    EM.run do
+#        stream.userstream do |status|
+#          max_status_id               = 0
+#          mention                     = client.mentions_timeline.first
+#          tweet_status_id             = mention.id.to_i
+#          mention_text                = client.status(mention.id).text
+#          reply_to_user               = mention.user.screen_name
+#
+#          log.info('reply   from @%s: %s' % [status.reply, status.text])
+#          puts "reply   from @#{status.reply}: #{status.text}"
+#          log.info('status  from @%s: %s' % [status.from_user, status.text])
+#          puts "status  from @#{status.from_user}: #{status.text}"
+#        end
+#    end
 #
 #    if ( max_status_id < tweet_status_id )
 #      max_status_id = tweet_status_id
