@@ -9,7 +9,7 @@ gem 'mysql2'
 
 # Use rails_12factor for Heroku
 gem 'rails_12factor', group: :production
-gem 'heroku'
+# gem 'heroku'
 
 
 # Use SCSS for stylesheets
