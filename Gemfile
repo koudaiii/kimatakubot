@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.2.10'
 
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
@@ -117,7 +117,7 @@ group :development, :test do
 
   gem 'pry-rails'
   gem 'pry-coolline'
-  gem 'pry-debugger'
+#  gem 'pry-debugger'
   gem 'awesome_print'
 
   gem 'hirb'
