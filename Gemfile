@@ -94,14 +94,14 @@ group :development, :test do
   gem 'spork'
 
   # Use guard
-  gem 'guard'
-  gem 'guard-rspec'
-  gem 'guard-cucumber'
-  gem 'guard-rubocop'
+#  gem 'guard'
+#  gem 'guard-rspec'
+#  gem 'guard-cucumber'
+#  gem 'guard-rubocop'
 
   # Gemfileを監視して変更があったら自動でbundle installを実行
-  gem 'guard-bundler'
-  gem 'growl'
+#  gem 'guard-bundler'
+#  gem 'growl'
 
   gem 'webrat'
   gem 'database_cleaner'
@@ -123,11 +123,11 @@ group :development, :test do
   gem 'hirb'
   gem 'hirb-unicode'
 
-  gem 'rails-erd'
+#  gem 'rails-erd'
   # static code analyzer
-  gem 'rubocop', require: false
+#  gem 'rubocop', require: false
   # gem 'guard-rubocop'
-  gem 'quiet_assets'
+#  gem 'quiet_assets'
 
   # heroku
   gem 'foreman'
