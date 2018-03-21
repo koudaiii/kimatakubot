@@ -94,15 +94,15 @@ GEM
     daemons (1.2.6)
     database_cleaner (1.6.2)
     debug_inspector (0.0.3)
-    descendants_tracker (0.0.4)
-      thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.3)
     docile (1.1.5)
+    domain_name (0.5.20170404)
+      unf (>= 0.0.5, < 1.0.0)
     dotenv (2.2.1)
     dotenv-rails (2.2.1)
       dotenv (= 2.2.1)
       railties (>= 3.2, < 5.2)
-    equalizer (0.0.11)
+    equalizer (0.0.10)
     erubi (1.7.0)
     erubis (2.7.0)
     eventmachine (1.2.5)
@@ -126,8 +126,14 @@ GEM
       hirb (~> 0.5)
       unicode-display_width (~> 0.1.1)
     holiday_jp (0.6.1)
-    http (0.5.1)
-      http_parser.rb
+    http (1.0.4)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 1.0.1)
+      http_parser.rb (~> 0.6.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    http-form_data (1.0.3)
     http_parser.rb (0.6.0)
     i18n (0.9.4)
       concurrent-ruby (~> 1.0)
@@ -170,6 +176,7 @@ GEM
     multi_test (0.1.2)
     multipart-post (2.0.0)
     mysql2 (0.4.10)
+    naught (1.1.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     oauth (0.5.4)
@@ -189,7 +196,7 @@ GEM
       coolline (~> 0.5)
     pry-rails (0.3.6)
       pry (>= 0.10.4)
-    public_suffix (3.0.1)
+    public_suffix (3.0.2)
     puma (3.11.2)
     rack (1.6.8)
     rack-test (0.6.3)
@@ -257,7 +264,7 @@ GEM
       sprockets-rails (~> 2.0)
     sdoc (1.0.0)
       rdoc (>= 5.0)
-    simple_oauth (0.2.0)
+    simple_oauth (0.3.1)
     simplecov (0.15.1)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
@@ -289,17 +296,17 @@ GEM
     tweetstream (1.0.5)
       daemons
       twitter-stream
-    twitter (5.3.1)
+    twitter (5.17.0)
       addressable (~> 2.3)
       buftok (~> 0.2.0)
-      descendants_tracker (~> 0.0.1)
-      equalizer (~> 0.0.9)
-      faraday (>= 0.8, < 0.10)
-      http (~> 0.5.0)
+      equalizer (= 0.0.10)
+      faraday (~> 0.9.0)
+      http (~> 1.0)
       http_parser.rb (~> 0.6.0)
       json (~> 1.8)
       memoizable (~> 0.4.0)
-      simple_oauth (~> 0.2.0)
+      naught (~> 1.0)
+      simple_oauth (~> 0.3.0)
     twitter-stream (0.1.12)
       eventmachine (>= 0.12.8)
       roauth (>= 0.0.2)
@@ -307,6 +314,9 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.6)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.5)
     unicode-display_width (0.1.1)
     unicode_utils (1.4.0)
     webrat (0.7.3)
@@ -338,7 +348,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mysql2
-  omniauth-twitter (~> 1.0.1)
+  omniauth-twitter (~> 1.0)
   pry
   pry-coolline
   pry-rails
@@ -356,7 +366,7 @@ DEPENDENCIES
   turbolinks
   turnip
   tweetstream
-  twitter (~> 5.3.0)
+  twitter (~> 5.3)
   uglifier (>= 1.3.0)
   webrat
 
